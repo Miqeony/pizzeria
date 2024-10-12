@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Menu from './components/Menu/index.jsx';
+import Menu from './components/Menu/index.jsx'
 import Cart from './components/Cart/index.jsx';
 import OrderForm from './components/OrderForm/index.jsx';
 import './App.css';
+import './mediacss/media.css';
 
 function App() {
   const [cart, setCart] = useState(() => {
@@ -12,6 +13,7 @@ function App() {
   });
 
   const [isSubMenuVisible, setSubMenuVisible] = useState(false);
+  const [isBurgerMenuOpen, setBurgerMenuOpen] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -31,12 +33,17 @@ function App() {
     setSubMenuVisible(!isSubMenuVisible);
   };
 
+  const handleBurgerMenuClick = () => {
+    setBurgerMenuOpen(!isBurgerMenuOpen);
+  };
+
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -48,7 +55,7 @@ function App() {
             <h1 className="restaurant-name">PizzaKotto</h1>
           </div>
 
-          <nav className="main-nav">
+          <nav className={`main-nav ${isBurgerMenuOpen ? 'active' : ''}`}>
             <Link to="/" className="nav-link">головна</Link>
 
             <div className="menu-wrapper">
@@ -71,6 +78,11 @@ function App() {
             </button>
           </Link>
 
+          <div className={`burger-menu ${isBurgerMenuOpen ? 'open' : ''}`} onClick={handleBurgerMenuClick}>
+            <div className="burger-line"></div>
+            <div className="burger-line"></div>
+            <div className="burger-line"></div>
+          </div>
         </header>
 
         <Routes>
@@ -80,6 +92,7 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
+
   );
 }
 

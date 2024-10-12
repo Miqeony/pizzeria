@@ -2,6 +2,7 @@ import React from 'react';
 import PizzaItem from '../PizzaItem';
 import DrinkItem from '../DrinkItem';
 import './menu.css'
+
 const pizzas = [
     {
         id: 1,
