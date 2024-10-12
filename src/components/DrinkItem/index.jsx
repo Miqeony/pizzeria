@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import './drinkItem.css'
 
-function DrinkItem({ drink }) {
+function DrinkItem({ drink, addToCart }) {
     const [selectedVolume, setSelectedVolume] = useState(drink.volumes[0]);
+
+    const handleAddToCart = () => {
+        addToCart({
+            ...drink,
+            selectedVolume,
+            price: selectedVolume.price,
+        });
+    };
 
     const drinkImage = `/images/${drink.image}`;
 
@@ -34,7 +42,7 @@ function DrinkItem({ drink }) {
 
 
                 <p>Ціна: {selectedVolume.price} грн</p>
-                <button className="add-to-cart">Додати до кошика</button>
+                <button className="add-to-cart" onClick={handleAddToCart}>Додати до кошика</button>
             </div>
         </div>
     );

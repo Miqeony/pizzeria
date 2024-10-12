@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './pizzaItem.css'
 
-function PizzaItem({ pizza }) {
+function PizzaItem({ pizza, addToCart }) {
     const [size, setSize] = useState('medium');
     const [crust, setCrust] = useState('traditional');
     const [extras, setExtras] = useState([]);
@@ -22,10 +22,19 @@ function PizzaItem({ pizza }) {
             setExtras([...extras, ingredient]);
         }
     };
-
     const basePrice = pizza.price[size];
     const extrasPrice = extras.length * 25;
     const totalPrice = basePrice + extrasPrice;
+
+    const handleAddToCart = () => {
+        addToCart({
+            ...pizza,
+            size,
+            crust,
+            extras,
+            price: totalPrice,
+        });
+    };
 
     const pizzaImage = `/images/${pizza.image}`;
 
@@ -84,7 +93,7 @@ function PizzaItem({ pizza }) {
 
 
                 <p>Загальна ціна: {totalPrice} грн</p>
-                <button className="add-to-cart">Додати до кошика</button>
+                <button className="add-to-cart" onClick={handleAddToCart}>Додати до кошика</button>
             </div>
         </div>
     );

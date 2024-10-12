@@ -77,7 +77,7 @@ const drinks = [
 
 ];
 
-function Menu() {
+function Menu({ addToCart }) {
     return (
         <div className="container menu-container">
             <h1 className="center-text">Меню</h1>
@@ -85,7 +85,7 @@ function Menu() {
                 <h2 className="color center-text">Піца</h2>
                 <div className="card-container">
                     {pizzas.map((pizza) => (
-                        <PizzaItem key={pizza.id} pizza={pizza} />
+                        <PizzaItem key={pizza.id} pizza={pizza} addToCart={addToCart} />
                     ))}
                 </div>
             </section>
@@ -94,7 +94,7 @@ function Menu() {
                 <h2 className="color center-text">Напої</h2>
                 <div className="card-container">
                     {drinks.map((drink) => (
-                        <DrinkItem key={drink.id} drink={drink} />
+                        <DrinkItem key={drink.id} drink={drink} addToCart={addToCart} />
                     ))}
                 </div>
             </section>

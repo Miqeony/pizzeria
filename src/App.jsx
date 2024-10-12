@@ -1,10 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Menu from './components/Menu/index.jsx';
+import Cart from './components/Cart/index.jsx';
 import './App.css';
 
 function App() {
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
   const [isSubMenuVisible, setSubMenuVisible] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
+
+  const addToCart = (item) => {
+    setCart([...cart, item]);
+  };
+
+  const updateCart = (updatedCart) => {
+    setCart(updatedCart);
+  };
+
+  const totalItems = cart.length;
 
   const handleMenuClick = () => {
     setSubMenuVisible(!isSubMenuVisible);
@@ -16,7 +36,6 @@ function App() {
       section.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
   return (
     <BrowserRouter>
       <div className="App">
@@ -45,15 +64,17 @@ function App() {
             <Link to="" className="nav-link">контакти</Link>
           </nav>
 
-          <Link to="">
+          <Link to="/cart">
             <button className="add-to-cart">
-              Кошик
+              Кошик ({totalItems})
             </button>
           </Link>
+
         </header>
 
         <Routes>
-          <Route path="/" element={<Menu />} />
+          <Route path="/" element={<Menu addToCart={addToCart} />} />
+          <Route path="/cart" element={<Cart cart={cart} updateCart={updateCart} />} />
         </Routes>
       </div>
     </BrowserRouter>
