@@ -46,7 +46,7 @@ function Cart({ cart, updateCart }) {
                 <button className="clear-cart-btn" onClick={handleClearCart}>Очистити кошик</button>
 
                 {cart.length > 0 && (
-                    <Link to="">
+                    <Link to="/order">
                         <button className="order-btn">Оформити замовлення</button>
                     </Link>
                 )}

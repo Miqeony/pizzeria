@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Menu from './components/Menu/index.jsx';
 import Cart from './components/Cart/index.jsx';
+import OrderForm from './components/OrderForm/index.jsx';
 import './App.css';
 
 function App() {
@@ -75,6 +76,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Menu addToCart={addToCart} />} />
           <Route path="/cart" element={<Cart cart={cart} updateCart={updateCart} />} />
+          <Route path="/order" element={<OrderForm cart={cart} />} />
         </Routes>
       </div>
     </BrowserRouter>
