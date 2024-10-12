@@ -1,0 +1,144 @@
+.pizza-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    padding: 20px;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.pizza-item:hover {
+    box-shadow: 5px 5px 10px 2px rgba(93, 89, 83, 0.234);
+}
+
+.pizza-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.pizza-info {
+    text-align: center;
+}
+
+.pizza-info h3 {
+    margin: 10px 0;
+}
+
+.pizza-info select,
+.pizza-info input[type="checkbox"] {
+    margin: 5px 0;
+}
+
+.pizza-info button {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.pizza-info button:hover {
+    background-color: #ff7700;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.pizza-info {
+    text-align: center;
+}
+
+.pizza-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.selection-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.selection-group label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.box {
+    width: 160px;
+    padding: 8px;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.box:focus {
+    border-color: #ff9900;
+}
+
+.box:hover {
+    border-color: #ff9900;
+    cursor: pointer;
+}
+
+.extras-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.extras-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.extras-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.extra-item {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.extra-item:hover {
+    background-color: #ffe0b2;
+    border-color: #ff5722;
+}
+
+.extra-item input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: #ff5722;
+}

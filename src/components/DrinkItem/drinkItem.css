@@ -1,0 +1,93 @@
+.drink-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    padding: 20px;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.drink-item:hover {
+    box-shadow: 5px 5px 10px 2px rgba(93, 89, 83, 0.234);
+}
+
+.drink-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+
+.drink-info {
+    text-align: center;
+}
+
+.drink-info h3 {
+    margin: 10px 0;
+}
+
+.drink-info select {
+    margin: 5px 0;
+}
+
+.drink-info button {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.drink-info button:hover {
+    background-color: #ff7700;
+}
+
+.volume-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.volume-selection label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.volume-select {
+    width: 180px;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.volume-select:focus {
+    border-color: #ff9900;
+}
+
+.volume-select:hover {
+    border-color: #ff9900;
+    cursor: pointer;
+}
+
+.option-style {
+    background-color: #fff;
+    color: #333;
+    padding: 10px;
+}
+
+.option-style:hover {
+    background-color: #f5f5f5;
+    color: #ff9900;
+}
